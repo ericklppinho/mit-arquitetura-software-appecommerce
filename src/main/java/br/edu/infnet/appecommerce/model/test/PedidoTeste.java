@@ -3,22 +3,26 @@ package br.edu.infnet.appecommerce.model.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appecommerce.controller.PedidoController;
 import br.edu.infnet.appecommerce.model.domain.Cliente;
 import br.edu.infnet.appecommerce.model.domain.Eletronico;
 import br.edu.infnet.appecommerce.model.domain.Movel;
 import br.edu.infnet.appecommerce.model.domain.Pedido;
 import br.edu.infnet.appecommerce.model.domain.Produto;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
+import br.edu.infnet.appecommerce.model.service.PedidoService;
 
 @Order(1)
 @Component
 public class PedidoTeste implements ApplicationRunner {
+
+    @Autowired
+    private PedidoService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -77,7 +81,7 @@ public class PedidoTeste implements ApplicationRunner {
         p1.setStatus("Em Separação");
         p1.setCliente(c1);
         p1.setProdutos(l1);
-        PedidoController.incluir(p1);
+        service.incluir(p1);
 
         Cliente c2 = new Cliente();
         c2.setCodigo(2);
@@ -92,7 +96,7 @@ public class PedidoTeste implements ApplicationRunner {
         Pedido p2 = new Pedido();
         p1.setCliente(c2);
         p2.setProdutos(l2);
-        PedidoController.incluir(p2);
+        service.incluir(p2);
 
         Cliente c3 = new Cliente();
         c3.setCodigo(3);
@@ -107,7 +111,7 @@ public class PedidoTeste implements ApplicationRunner {
         p3.setStatus("Pagamento de Boleto Pendente");
         p1.setCliente(c3);
         p3.setProdutos(l3);
-        PedidoController.incluir(p3);
+        service.incluir(p3);
     }
 
 }

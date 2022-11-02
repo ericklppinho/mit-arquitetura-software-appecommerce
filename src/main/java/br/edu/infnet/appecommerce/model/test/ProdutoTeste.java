@@ -1,18 +1,22 @@
 package br.edu.infnet.appecommerce.model.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appecommerce.controller.ProdutoController;
 import br.edu.infnet.appecommerce.model.domain.Eletronico;
 import br.edu.infnet.appecommerce.model.domain.Movel;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
+import br.edu.infnet.appecommerce.model.service.ProdutoService;
 
 @Order(3)
 @Component
 public class ProdutoTeste implements ApplicationRunner {
+
+    @Autowired
+    private ProdutoService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -30,7 +34,7 @@ public class ProdutoTeste implements ApplicationRunner {
         e1.setAltura(1.2f);
         e1.setComprimento(2.1f);
         e1.setProfundidade(0.05f);
-        ProdutoController.incluir(e1);
+        service.incluir(e1);
 
         Movel m1 = new Movel();
         m1.setMarca("Só Madeira");
@@ -43,7 +47,7 @@ public class ProdutoTeste implements ApplicationRunner {
         m1.setAltura(2.20f);
         m1.setComprimento(3.5f);
         m1.setProfundidade(0.8f);
-        ProdutoController.incluir(m1);
+        service.incluir(m1);
 
         Roupa r1 = new Roupa();
         r1.setMarca("Biotipo");
@@ -55,7 +59,7 @@ public class ProdutoTeste implements ApplicationRunner {
         r1.setCor("Preta");
         r1.setGenero("Masculino");
         r1.setEstampada(false);
-        ProdutoController.incluir(r1);
+        service.incluir(r1);
     }
 
 }

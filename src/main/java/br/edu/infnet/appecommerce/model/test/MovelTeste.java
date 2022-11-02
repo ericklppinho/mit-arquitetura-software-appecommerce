@@ -1,16 +1,20 @@
 package br.edu.infnet.appecommerce.model.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appecommerce.controller.MovelController;
 import br.edu.infnet.appecommerce.model.domain.Movel;
+import br.edu.infnet.appecommerce.model.service.MovelService;
 
 @Order(5)
 @Component
 public class MovelTeste implements ApplicationRunner {
+
+    @Autowired
+    private MovelService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -28,7 +32,7 @@ public class MovelTeste implements ApplicationRunner {
         m1.setAltura(2.20f);
         m1.setComprimento(3.5f);
         m1.setProfundidade(0.8f);
-        MovelController.incluir(m1);
+        service.incluir(m1);
 
         Movel m2 = new Movel();
         m2.setMarca("Só Madeira");
@@ -41,7 +45,7 @@ public class MovelTeste implements ApplicationRunner {
         m2.setAltura(1.1f);
         m2.setComprimento(1.5f);
         m2.setProfundidade(1);
-        MovelController.incluir(m2);
+        service.incluir(m2);
 
         Movel m3 = new Movel();
         m3.setMarca("MDF & Cia");
@@ -54,7 +58,7 @@ public class MovelTeste implements ApplicationRunner {
         m3.setAltura(1.8f);
         m3.setComprimento(1.5f);
         m3.setProfundidade(0.5f);
-        MovelController.incluir(m3);
+        service.incluir(m3);
     }
 
 }

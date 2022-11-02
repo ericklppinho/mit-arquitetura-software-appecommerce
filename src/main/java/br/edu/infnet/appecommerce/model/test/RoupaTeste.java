@@ -1,16 +1,20 @@
 package br.edu.infnet.appecommerce.model.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appecommerce.controller.RoupaController;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
+import br.edu.infnet.appecommerce.model.service.RoupaService;
 
 @Order(6)
 @Component
 public class RoupaTeste implements ApplicationRunner {
+
+    @Autowired
+    private RoupaService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -27,7 +31,7 @@ public class RoupaTeste implements ApplicationRunner {
         r1.setCor("Preta");
         r1.setGenero("Masculino");
         r1.setEstampada(false);
-        RoupaController.incluir(r1);
+        service.incluir(r1);
 
         Roupa r2 = new Roupa();
         r2.setMarca("Polo");
@@ -39,7 +43,7 @@ public class RoupaTeste implements ApplicationRunner {
         r2.setCor("Preta");
         r2.setGenero("Masculino");
         r2.setEstampada(false);
-        RoupaController.incluir(r2);
+        service.incluir(r2);
 
         Roupa r3 = new Roupa();
         r3.setMarca("Biotipo");
@@ -51,7 +55,7 @@ public class RoupaTeste implements ApplicationRunner {
         r3.setCor("Branca");
         r3.setGenero("Feminino");
         r3.setEstampada(true);
-        RoupaController.incluir(r3);
+        service.incluir(r3);
     }
 
 }

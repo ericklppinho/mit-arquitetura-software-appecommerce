@@ -1,16 +1,20 @@
 package br.edu.infnet.appecommerce.model.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appecommerce.controller.EletronicoController;
 import br.edu.infnet.appecommerce.model.domain.Eletronico;
+import br.edu.infnet.appecommerce.model.service.EletronicoService;
 
 @Order(4)
 @Component
 public class EletronicoTeste implements ApplicationRunner {
+
+    @Autowired
+    private EletronicoService service;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -28,7 +32,7 @@ public class EletronicoTeste implements ApplicationRunner {
         e1.setAltura(1.2f);
         e1.setComprimento(2.1f);
         e1.setProfundidade(0.05f);
-        EletronicoController.incluir(e1);
+        service.incluir(e1);
 
         Eletronico e2 = new Eletronico();
         e2.setMarca("Sony");
@@ -41,7 +45,7 @@ public class EletronicoTeste implements ApplicationRunner {
         e2.setAltura(0.15f);
         e2.setComprimento(30);
         e2.setProfundidade(30);
-        EletronicoController.incluir(e2);
+        service.incluir(e2);
 
         Eletronico e3 = new Eletronico();
         e3.setMarca("Apple");
@@ -54,7 +58,7 @@ public class EletronicoTeste implements ApplicationRunner {
         e3.setAltura(8);
         e3.setComprimento(4);
         e3.setProfundidade(0.01f);
-        EletronicoController.incluir(e3);
+        service.incluir(e3);
     }
 
 }

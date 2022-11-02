@@ -1,5 +1,10 @@
 package br.edu.infnet.appecommerce.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "eletronico")
 public class Eletronico extends Produto {
 
     private int voltagem;

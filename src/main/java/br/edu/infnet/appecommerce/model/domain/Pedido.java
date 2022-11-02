@@ -3,12 +3,29 @@ package br.edu.infnet.appecommerce.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "pedido")
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private String status;
     private LocalDateTime data;
+    @Transient
+    @ManyToOne
     private Cliente cliente;
+    @Transient
+    @OneToMany
     private List<Produto> produtos;
 
     public Pedido() {

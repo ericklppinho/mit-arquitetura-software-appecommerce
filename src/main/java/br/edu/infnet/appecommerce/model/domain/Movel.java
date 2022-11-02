@@ -1,5 +1,10 @@
 package br.edu.infnet.appecommerce.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "movel")
 public class Movel extends Produto {
 
     private String material;
