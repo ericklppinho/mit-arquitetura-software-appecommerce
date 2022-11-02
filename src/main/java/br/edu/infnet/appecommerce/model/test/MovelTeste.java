@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appecommerce.controller.MovelController;
 import br.edu.infnet.appecommerce.model.domain.Movel;
 
 @Order(5)
@@ -17,7 +18,6 @@ public class MovelTeste implements ApplicationRunner {
         System.out.println("## Cadastramento de Moveis ##");
 
         Movel m1 = new Movel();
-        m1.setCodigo(1);
         m1.setMarca("Só Madeira");
         m1.setNome("Quarda Roupa Premium");
         m1.setValor(8990);
@@ -28,10 +28,9 @@ public class MovelTeste implements ApplicationRunner {
         m1.setAltura(2.20f);
         m1.setComprimento(3.5f);
         m1.setProfundidade(0.8f);
-        System.out.println("> " + m1);
+        MovelController.incluir(m1);
 
         Movel m2 = new Movel();
-        m2.setCodigo(1);
         m2.setMarca("Só Madeira");
         m2.setNome("Cômoda");
         m2.setValor(3599);
@@ -42,10 +41,9 @@ public class MovelTeste implements ApplicationRunner {
         m2.setAltura(1.1f);
         m2.setComprimento(1.5f);
         m2.setProfundidade(1);
-        System.out.println("> " + m2);
+        MovelController.incluir(m2);
 
         Movel m3 = new Movel();
-        m3.setCodigo(1);
         m3.setMarca("MDF & Cia");
         m3.setNome("Quarda Roupa Infantil");
         m3.setValor(559);
@@ -56,7 +54,7 @@ public class MovelTeste implements ApplicationRunner {
         m3.setAltura(1.8f);
         m3.setComprimento(1.5f);
         m3.setProfundidade(0.5f);
-        System.out.println("> " + m3);
+        MovelController.incluir(m3);
     }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appecommerce.controller.EletronicoController;
 import br.edu.infnet.appecommerce.model.domain.Eletronico;
 
 @Order(4)
@@ -17,7 +18,6 @@ public class EletronicoTeste implements ApplicationRunner {
         System.out.println("## Cadastramento de Eletronicos ##");
 
         Eletronico e1 = new Eletronico();
-        e1.setCodigo(1);
         e1.setMarca("LG");
         e1.setNome("TV Smart 55");
         e1.setValor(2990);
@@ -28,10 +28,9 @@ public class EletronicoTeste implements ApplicationRunner {
         e1.setAltura(1.2f);
         e1.setComprimento(2.1f);
         e1.setProfundidade(0.05f);
-        System.out.println("> " + e1);
+        EletronicoController.incluir(e1);
 
         Eletronico e2 = new Eletronico();
-        e2.setCodigo(2);
         e2.setMarca("Sony");
         e2.setNome("XBox");
         e2.setValor(5000);
@@ -42,10 +41,9 @@ public class EletronicoTeste implements ApplicationRunner {
         e2.setAltura(0.15f);
         e2.setComprimento(30);
         e2.setProfundidade(30);
-        System.out.println("> " + e2);
+        EletronicoController.incluir(e2);
 
         Eletronico e3 = new Eletronico();
-        e3.setCodigo(3);
         e3.setMarca("Apple");
         e3.setNome("Iphone 14 Pro Max");
         e3.setValor(12990);
@@ -56,7 +54,7 @@ public class EletronicoTeste implements ApplicationRunner {
         e3.setAltura(8);
         e3.setComprimento(4);
         e3.setProfundidade(0.01f);
-        System.out.println("> " + e3);
+        EletronicoController.incluir(e3);
     }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appecommerce.controller.RoupaController;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
 
 @Order(6)
@@ -17,7 +18,6 @@ public class RoupaTeste implements ApplicationRunner {
         System.out.println("## Cadastramento de Roupas ##");
 
         Roupa r1 = new Roupa();
-        r1.setCodigo(1);
         r1.setMarca("Biotipo");
         r1.setNome("Calça");
         r1.setValor(180);
@@ -27,10 +27,9 @@ public class RoupaTeste implements ApplicationRunner {
         r1.setCor("Preta");
         r1.setGenero("Masculino");
         r1.setEstampada(false);
-        System.out.println("> " + r1);
+        RoupaController.incluir(r1);
 
         Roupa r2 = new Roupa();
-        r2.setCodigo(2);
         r2.setMarca("Polo");
         r2.setNome("Blusa Polo");
         r2.setValor(150);
@@ -40,10 +39,9 @@ public class RoupaTeste implements ApplicationRunner {
         r2.setCor("Preta");
         r2.setGenero("Masculino");
         r2.setEstampada(false);
-        System.out.println("> " + r2);
+        RoupaController.incluir(r2);
 
         Roupa r3 = new Roupa();
-        r3.setCodigo(1);
         r3.setMarca("Biotipo");
         r3.setNome("Camisa Primavera");
         r3.setValor(150);
@@ -53,7 +51,7 @@ public class RoupaTeste implements ApplicationRunner {
         r3.setCor("Branca");
         r3.setGenero("Feminino");
         r3.setEstampada(true);
-        System.out.println("> " + r3);
+        RoupaController.incluir(r3);
     }
 
 }
