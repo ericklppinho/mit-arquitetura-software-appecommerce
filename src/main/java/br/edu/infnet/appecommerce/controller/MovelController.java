@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import br.edu.infnet.appecommerce.model.domain.Movel;
 import br.edu.infnet.appecommerce.model.service.MovelService;
 
 @Controller
@@ -22,8 +24,22 @@ public class MovelController {
         return "movel/lista";
     }
 
+    @GetMapping(value = "/movel")
+    public String telaCadastro() {
+
+        return "movel/cadastro";
+    }
+
+    @PostMapping(value = "/movel/incluir")
+    public String incluir(Movel movel) {
+
+        service.incluir(movel);
+
+        return "redirect:/movel/lista";
+    }
+
     @GetMapping(value = "/movel/{codigo}/excluir")
-    public String exclusao(@PathVariable Integer codigo) {
+    public String excluir(@PathVariable Integer codigo) {
 
         service.excluir(codigo);
 

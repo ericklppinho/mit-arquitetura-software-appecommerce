@@ -17,7 +17,7 @@ import br.edu.infnet.appecommerce.model.domain.Produto;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
 import br.edu.infnet.appecommerce.model.service.PedidoService;
 
-@Order(1)
+@Order(2)
 @Component
 public class PedidoTeste implements ApplicationRunner {
 

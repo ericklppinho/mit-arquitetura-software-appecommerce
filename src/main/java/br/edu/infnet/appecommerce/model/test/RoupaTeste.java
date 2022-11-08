@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
 import br.edu.infnet.appecommerce.model.service.RoupaService;
 
-@Order(6)
+@Order(7)
 @Component
 public class RoupaTeste implements ApplicationRunner {
 

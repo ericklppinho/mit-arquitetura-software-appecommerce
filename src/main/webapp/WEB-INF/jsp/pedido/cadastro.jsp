@@ -6,11 +6,21 @@
         <head>
             <meta charset="ISO-8859-1">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-            <title>AppEcommerce</title>
+            <title>Cadastramento de Pedido</title>
         </head>
 
         <body>
             <c:import url="/WEB-INF/jsp/menu.jsp" />
+
+            <div class="container mt-3">
+                <h2>Pedido</h2>
+
+                <form action="/pedido/incluir" method="post">
+
+                    <button type="submit" class="btn btn-default">Cadastrar</button>
+                </form>
+
+            </div>
         </body>
 
         </html>

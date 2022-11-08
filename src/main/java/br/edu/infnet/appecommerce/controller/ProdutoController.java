@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import br.edu.infnet.appecommerce.model.domain.Produto;
 import br.edu.infnet.appecommerce.model.service.ProdutoService;
 
 @Controller
@@ -22,8 +24,22 @@ public class ProdutoController {
         return "produto/lista";
     }
 
+    @GetMapping(value = "/produto")
+    public String telaCadastro() {
+
+        return "produto/cadastro";
+    }
+
+    @PostMapping(value = "/produto/incluir")
+    public String incluir(Produto produto) {
+
+        service.incluir(produto);
+
+        return "redirect:/produto/lista";
+    }
+
     @GetMapping(value = "/produto/{codigo}/excluir")
-    public String exclusao(@PathVariable Integer codigo) {
+    public String excluir(@PathVariable Integer codigo) {
 
         service.excluir(codigo);
 

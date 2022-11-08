@@ -8,9 +8,9 @@ import javax.persistence.Table;
 public class Roupa extends Produto {
 
     private String tamanho;
+    private boolean estampada;
     private String cor;
     private String genero;
-    private boolean estampada;
 
     public String getTamanho() {
         return tamanho;

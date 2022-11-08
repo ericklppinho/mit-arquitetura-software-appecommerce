@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.appecommerce.model.domain.Movel;
 import br.edu.infnet.appecommerce.model.service.MovelService;
 
-@Order(5)
+@Order(6)
 @Component
 public class MovelTeste implements ApplicationRunner {
 

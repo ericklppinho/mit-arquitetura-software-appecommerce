@@ -11,7 +11,7 @@ import br.edu.infnet.appecommerce.model.domain.Movel;
 import br.edu.infnet.appecommerce.model.domain.Roupa;
 import br.edu.infnet.appecommerce.model.service.ProdutoService;
 
-@Order(3)
+@Order(4)
 @Component
 public class ProdutoTeste implements ApplicationRunner {
 
